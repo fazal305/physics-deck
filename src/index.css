@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Quarry & Forge palette — stone, copper, kinetic slate */
+  --color-void: #121016;
+  --color-surface: #1b1820;
+  --color-surface-raised: #24202a;
+  --color-surface-inset: #0e0c11;
+  --color-border: #37323d;
+  --color-border-strong: #4a4451;
+
+  --color-ink: #e8e3da;
+  --color-ink-muted: #a49c8e;
+  --color-ink-faint: #6f6a72;
+  --color-heading: #f4f0e6;
+
+  --color-ember: #d97a3d;
+  --color-ember-bright: #f0995a;
+  --color-ember-dim: rgba(217, 122, 61, 0.16);
+
+  --color-kinetic: #5b90a3;
+  --color-kinetic-bright: #7db3c7;
+  --color-kinetic-dim: rgba(91, 144, 163, 0.16);
+
+  --color-vital: #b8453a;
+  --color-vital-bright: #d65f52;
+  --color-vital-dim: rgba(184, 69, 58, 0.16);
+
+  --color-guard: #6b8f5a;
+  --color-guard-bright: #87ad74;
+  --color-guard-dim: rgba(107, 143, 90, 0.16);
+
+  --color-gold: #c9a24a;
+
+  --font-heading: 'IBM Plex Serif', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.35), 0 12px 28px -10px rgba(0, 0, 0, 0.55);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--color-ember-dim);
+  color: var(--color-ember-bright);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ember-bright);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
