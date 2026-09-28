@@ -1,6 +1,6 @@
-import { getCard } from '../../data/cards/cards.js'
-import { Card } from '../cards/Card.jsx'
-import { Button } from '../../components/Button.jsx'
+import { getCard } from "../../data/cards/cards.js";
+import { Card } from "../cards/Card.jsx";
+import { Button } from "../../components/Button.jsx";
 
 export function DeckView({ masterDeck, onClose }) {
   return (
@@ -36,5 +36,5 @@ export function DeckView({ masterDeck, onClose }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

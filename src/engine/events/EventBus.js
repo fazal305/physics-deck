@@ -5,30 +5,30 @@
  */
 export class EventBus {
   constructor() {
-    this.listeners = new Map()
+    this.listeners = new Map();
   }
 
   on(eventType, handler) {
     if (!this.listeners.has(eventType)) {
-      this.listeners.set(eventType, new Set())
+      this.listeners.set(eventType, new Set());
     }
-    this.listeners.get(eventType).add(handler)
-    return () => this.off(eventType, handler)
+    this.listeners.get(eventType).add(handler);
+    return () => this.off(eventType, handler);
   }
 
   off(eventType, handler) {
-    this.listeners.get(eventType)?.delete(handler)
+    this.listeners.get(eventType)?.delete(handler);
   }
 
   emit(eventType, payload) {
-    const handlers = this.listeners.get(eventType)
-    if (!handlers || handlers.size === 0) return
+    const handlers = this.listeners.get(eventType);
+    if (!handlers || handlers.size === 0) return;
     for (const handler of handlers) {
-      handler(payload)
+      handler(payload);
     }
   }
 
   clear() {
-    this.listeners.clear()
+    this.listeners.clear();
   }
 }

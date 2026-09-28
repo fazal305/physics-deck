@@ -1,5 +1,11 @@
-export function ProgressBar({ value, max, colorClass = 'bg-vital', trackClass = 'bg-surface-inset', label }) {
-  const pct = max > 0 ? Math.max(0, Math.min(100, (value / max) * 100)) : 0
+export function ProgressBar({
+  value,
+  max,
+  colorClass = "bg-vital",
+  trackClass = "bg-surface-inset",
+  label,
+}) {
+  const pct = max > 0 ? Math.max(0, Math.min(100, (value / max) * 100)) : 0;
   return (
     <div className="w-full">
       <div
@@ -10,8 +16,11 @@ export function ProgressBar({ value, max, colorClass = 'bg-vital', trackClass = 
         aria-valuemax={max}
         aria-label={label}
       >
-        <div className={`h-full rounded-full transition-[width] duration-300 ${colorClass}`} style={{ width: `${pct}%` }} />
+        <div
+          className={`h-full rounded-full transition-[width] duration-300 ${colorClass}`}
+          style={{ width: `${pct}%` }}
+        />
       </div>
     </div>
-  )
+  );
 }

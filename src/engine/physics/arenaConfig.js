@@ -8,4 +8,4 @@ export const ARENA = {
   enemyBaseX: 560,
   enemyY: 340,
   enemySpacing: 90,
-}
+};

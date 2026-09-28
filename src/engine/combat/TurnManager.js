@@ -1,9 +1,9 @@
 export const PHASES = Object.freeze({
-  PLAYER_TURN: 'playerTurn',
-  ENEMY_TURN: 'enemyTurn',
-  VICTORY: 'victory',
-  DEFEAT: 'defeat',
-})
+  PLAYER_TURN: "playerTurn",
+  ENEMY_TURN: "enemyTurn",
+  VICTORY: "victory",
+  DEFEAT: "defeat",
+});
 
 /**
  * Small phase-machine guard used by CombatEngine so phase transitions are
@@ -13,14 +13,14 @@ export const PHASES = Object.freeze({
  */
 export class TurnManager {
   canEndPlayerTurn(phase) {
-    return phase === PHASES.PLAYER_TURN
+    return phase === PHASES.PLAYER_TURN;
   }
 
   canRunEnemyTurn(phase) {
-    return phase === PHASES.ENEMY_TURN
+    return phase === PHASES.ENEMY_TURN;
   }
 
   isCombatOver(phase) {
-    return phase === PHASES.VICTORY || phase === PHASES.DEFEAT
+    return phase === PHASES.VICTORY || phase === PHASES.DEFEAT;
   }
 }

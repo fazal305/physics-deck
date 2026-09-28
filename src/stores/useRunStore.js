@@ -1,9 +1,9 @@
-import { create } from 'zustand'
-import { generateMap } from '../engine/run/MapGenerator.js'
-import { makeSeed } from '../utils/rng.js'
+import { create } from "zustand";
+import { generateMap } from "../engine/run/MapGenerator.js";
+import { makeSeed } from "../utils/rng.js";
 
 export const useRunStore = create((set, get) => ({
-  status: 'notStarted', // notStarted | inProgress | victory | defeat
+  status: "notStarted", // notStarted | inProgress | victory | defeat
   seed: null,
   map: null,
   currentNodeId: null,
@@ -16,9 +16,9 @@ export const useRunStore = create((set, get) => ({
   playerMaxHp: 70,
 
   startRun(seed = makeSeed()) {
-    const map = generateMap(seed)
+    const map = generateMap(seed);
     set({
-      status: 'inProgress',
+      status: "inProgress",
       seed,
       map,
       currentNodeId: null,
@@ -29,63 +29,69 @@ export const useRunStore = create((set, get) => ({
       pendingEvent: null,
       playerHp: 70,
       playerMaxHp: 70,
-    })
+    });
   },
 
   setPlayerHp(hp) {
-    set((s) => ({ playerHp: Math.max(0, Math.min(s.playerMaxHp, hp)) }))
+    set((s) => ({ playerHp: Math.max(0, Math.min(s.playerMaxHp, hp)) }));
   },
 
   healPlayer(amount) {
-    set((s) => ({ playerHp: Math.min(s.playerMaxHp, s.playerHp + amount) }))
+    set((s) => ({ playerHp: Math.min(s.playerMaxHp, s.playerHp + amount) }));
   },
 
   damagePlayerOutOfCombat(amount) {
-    set((s) => ({ playerHp: Math.max(0, s.playerHp - amount) }))
+    set((s) => ({ playerHp: Math.max(0, s.playerHp - amount) }));
   },
 
   increaseMaxHp(amount) {
-    set((s) => ({ playerMaxHp: s.playerMaxHp + amount, playerHp: s.playerHp + amount }))
+    set((s) => ({
+      playerMaxHp: s.playerMaxHp + amount,
+      playerHp: s.playerHp + amount,
+    }));
   },
 
   travelTo(nodeId) {
-    set((s) => ({ currentNodeId: nodeId, visitedNodeIds: [...s.visitedNodeIds, nodeId] }))
+    set((s) => ({
+      currentNodeId: nodeId,
+      visitedNodeIds: [...s.visitedNodeIds, nodeId],
+    }));
   },
 
   addGold(amount) {
-    set((s) => ({ gold: s.gold + amount }))
+    set((s) => ({ gold: s.gold + amount }));
   },
 
   spendGold(amount) {
-    set((s) => ({ gold: Math.max(0, s.gold - amount) }))
+    set((s) => ({ gold: Math.max(0, s.gold - amount) }));
   },
 
   completeFloor() {
-    set((s) => ({ floorsCleared: s.floorsCleared + 1 }))
+    set((s) => ({ floorsCleared: s.floorsCleared + 1 }));
   },
 
   setPendingReward(reward) {
-    set({ pendingReward: reward })
+    set({ pendingReward: reward });
   },
 
   clearPendingReward() {
-    set({ pendingReward: null })
+    set({ pendingReward: null });
   },
 
   setPendingEvent(evt) {
-    set({ pendingEvent: evt })
+    set({ pendingEvent: evt });
   },
 
   clearPendingEvent() {
-    set({ pendingEvent: null })
+    set({ pendingEvent: null });
   },
 
   endRun(status) {
-    set({ status })
+    set({ status });
   },
 
   getCurrentNode() {
-    const { map, currentNodeId } = get()
-    return currentNodeId ? map?.nodes[currentNodeId] : null
+    const { map, currentNodeId } = get();
+    return currentNodeId ? map?.nodes[currentNodeId] : null;
   },
-}))
+}));

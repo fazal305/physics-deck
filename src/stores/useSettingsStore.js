@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
 export const useSettingsStore = create((set) => ({
   reducedMotion: false,
@@ -6,18 +6,18 @@ export const useSettingsStore = create((set) => ({
   soundEnabled: true,
 
   setReducedMotion(value) {
-    set({ reducedMotion: value })
+    set({ reducedMotion: value });
   },
 
   setScreenShake(value) {
-    set({ screenShake: value })
+    set({ screenShake: value });
   },
 
   setSoundEnabled(value) {
-    set({ soundEnabled: value })
+    set({ soundEnabled: value });
   },
 
   hydrate(settings) {
-    set(settings)
+    set(settings);
   },
-}))
+}));

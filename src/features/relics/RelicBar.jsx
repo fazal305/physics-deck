@@ -1,7 +1,7 @@
-import { Tooltip } from '../../components/Tooltip.jsx'
+import { Tooltip } from "../../components/Tooltip.jsx";
 
 export function RelicBar({ relics }) {
-  if (relics.length === 0) return null
+  if (relics.length === 0) return null;
   return (
     <div className="flex flex-wrap gap-2" aria-label="Relics">
       {relics.map((relic) => (
@@ -11,14 +11,14 @@ export function RelicBar({ relics }) {
               text-xs font-bold text-gold"
           >
             {relic.name
-              .split(' ')
+              .split(" ")
               .map((w) => w[0])
-              .join('')
+              .join("")
               .slice(0, 2)
               .toUpperCase()}
           </span>
         </Tooltip>
       ))}
     </div>
-  )
+  );
 }

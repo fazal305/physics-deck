@@ -10,4 +10,4 @@ export const CATEGORY = {
   PROJECTILE: 0x0010,
   ENVIRONMENT: 0x0020,
   HAZARD: 0x0040,
-}
+};

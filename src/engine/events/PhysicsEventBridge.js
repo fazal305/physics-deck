@@ -1,4 +1,4 @@
-import { PHYSICS_EVENT } from './eventTypes.js'
+import { PHYSICS_EVENT } from "./eventTypes.js";
 
 /**
  * The only module allowed to translate raw physics facts (a collision, an
@@ -9,24 +9,29 @@ import { PHYSICS_EVENT } from './eventTypes.js'
  */
 export class PhysicsEventBridge {
   constructor(eventBus, combatEngine) {
-    this.bus = eventBus
-    this.combatEngine = combatEngine
+    this.bus = eventBus;
+    this.combatEngine = combatEngine;
     this._unsubscribers = [
-      eventBus.on(PHYSICS_EVENT.COLLISION_RESOLVED, (payload) => this._onCollisionResolved(payload)),
-      eventBus.on(PHYSICS_EVENT.EXPLOSION, (payload) => this._onExplosion(payload)),
-    ]
+      eventBus.on(PHYSICS_EVENT.COLLISION_RESOLVED, (payload) =>
+        this._onCollisionResolved(payload),
+      ),
+      eventBus.on(PHYSICS_EVENT.EXPLOSION, (payload) =>
+        this._onExplosion(payload),
+      ),
+    ];
   }
 
   _onCollisionResolved(payload) {
-    if (payload.targetTeam !== 'enemy' && payload.targetTeam !== 'player') return
-    this.combatEngine.applyPhysicsCollision(payload)
+    if (payload.targetTeam !== "enemy" && payload.targetTeam !== "player")
+      return;
+    this.combatEngine.applyPhysicsCollision(payload);
   }
 
   _onExplosion(payload) {
-    this.combatEngine.applyExplosion(payload)
+    this.combatEngine.applyExplosion(payload);
   }
 
   destroy() {
-    this._unsubscribers.forEach((unsub) => unsub())
+    this._unsubscribers.forEach((unsub) => unsub());
   }
 }

@@ -1,8 +1,8 @@
-import { useId, useState } from 'react'
+import { useId, useState } from "react";
 
 export function Tooltip({ label, children }) {
-  const [visible, setVisible] = useState(false)
-  const id = useId()
+  const [visible, setVisible] = useState(false);
+  const id = useId();
 
   return (
     <span
@@ -26,5 +26,5 @@ export function Tooltip({ label, children }) {
         </span>
       )}
     </span>
-  )
+  );
 }

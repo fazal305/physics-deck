@@ -1,18 +1,19 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
 const KIND_COLOR = {
-  info: 'text-ink-muted',
-  success: 'text-guard-bright',
-  danger: 'text-vital-bright',
-  warn: 'text-ember-bright',
-}
+  info: "text-ink-muted",
+  success: "text-guard-bright",
+  danger: "text-vital-bright",
+  warn: "text-ember-bright",
+};
 
 export function CombatLog({ entries }) {
-  const listRef = useRef(null)
+  const listRef = useRef(null);
 
   useEffect(() => {
-    if (listRef.current) listRef.current.scrollTop = listRef.current.scrollHeight
-  }, [entries.length])
+    if (listRef.current)
+      listRef.current.scrollTop = listRef.current.scrollHeight;
+  }, [entries.length]);
 
   return (
     <div
@@ -22,10 +23,13 @@ export function CombatLog({ entries }) {
       aria-label="Combat log"
     >
       {entries.map((entry) => (
-        <p key={entry.id} className={KIND_COLOR[entry.kind] ?? 'text-ink-muted'}>
+        <p
+          key={entry.id}
+          className={KIND_COLOR[entry.kind] ?? "text-ink-muted"}
+        >
           {entry.text}
         </p>
       ))}
     </div>
-  )
+  );
 }

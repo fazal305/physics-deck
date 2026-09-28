@@ -1,5 +1,5 @@
-import { getCard } from '../../data/cards/cards.js'
-import { Card } from './Card.jsx'
+import { getCard } from "../../data/cards/cards.js";
+import { Card } from "./Card.jsx";
 
 export function Hand({ hand, energy, selectedInstanceId, onSelectCard }) {
   return (
@@ -8,9 +8,11 @@ export function Hand({ hand, energy, selectedInstanceId, onSelectCard }) {
       role="list"
       aria-label="Hand of cards"
     >
-      {hand.length === 0 && <p className="px-2 py-6 text-sm text-ink-faint">Hand is empty.</p>}
+      {hand.length === 0 && (
+        <p className="px-2 py-6 text-sm text-ink-faint">Hand is empty.</p>
+      )}
       {hand.map((instance) => {
-        const cardDef = getCard(instance.cardId)
+        const cardDef = getCard(instance.cardId);
         return (
           <div role="listitem" key={instance.instanceId}>
             <Card
@@ -21,8 +23,8 @@ export function Hand({ hand, energy, selectedInstanceId, onSelectCard }) {
               onSelect={onSelectCard}
             />
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
