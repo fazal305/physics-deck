@@ -9,6 +9,8 @@ Built with React 19 + Vite, Zustand for state, and Matter.js for simulation. No
 TypeScript, no UI kit, no external art — the visual identity is CSS design tokens and
 a hand-drawn canvas renderer.
 
+**Live Demo:** [physics-deck.netlify.app](https://physics-deck.netlify.app)
+
 ## Running it
 
 ```bash
