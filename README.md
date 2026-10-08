@@ -177,3 +177,11 @@ actually appear in a run.
   (`src/utils/save.js`). A run itself is not saved/resumable across a page reload —
   physics/simulation state is never a good persistence candidate, and per-turn combat
   state was judged not worth the complexity for this scope.
+
+## License
+
+Free for personal, educational, and noncommercial use under the [PolyForm Noncommercial License 1.0.0](LICENSE).
+
+Commercial use requires a paid commercial license. Contact fazalabbas2002@gmail.com.
+
+Versions up to and including `last-mit` were released under the MIT License and remain available under MIT.
