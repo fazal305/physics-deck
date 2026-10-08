@@ -109,7 +109,9 @@ export function CombatScreen({ enemyIds, playerVitals, onVictory, onDefeat }) {
 
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-3 p-3 md:p-4">
-      <CombatHUD player={player} turnNumber={turnNumber} phase={phase} />
+      <div className="sticky top-0 z-10">
+        <CombatHUD player={player} turnNumber={turnNumber} phase={phase} />
+      </div>
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-[1fr_260px]">
         <div className="flex flex-col gap-3">
